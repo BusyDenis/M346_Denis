@@ -11,7 +11,7 @@ Typ 1 ist schneller und wird für Server genutzt,
 Typ 2 ist einfacher für Tests am Desktop.
 
 
-B) Unterschied Hypervisor 1 und Hypervisor 2
+B) Unterschied Hypervisor 1 und Hypervisor 2 (70%)
 
 ## Virtualisierungssoftware
 
