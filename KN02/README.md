@@ -25,11 +25,10 @@
   - **Private IP:** `172.31.24.39`
 
 - **Nachweise**  
-  - Instanzliste inkl. öffentlicher IP:  
-    ![Instanzliste](Screenshot%202025-11-19%20101040.png)  
-  - Detailansicht mit Key-Pair & AMI:  
-    ![Instanzdetails 1](Screenshot%202025-11-19%20100138.png)  
-    ![Instanzdetails 2](Screenshot%202025-11-19%20100149.png)
+  - Detailansicht mit Instanz-Infos:  
+    ![Instanzdetails 1](image.png)  
+  - Detailansicht mit Netzwerk / IP:  
+    ![Instanzdetails 2](ssh-key2-error.png)  
 
 ### C) Zugriff mit SSH-Key (40 %)
 
@@ -52,22 +51,16 @@
 - **SSH-Befehle**  
   - **Key 1 (funktioniert):**  
     `ssh -i "Denis1.pem" ubuntu@ec2-52-201-60-41.compute-1.amazonaws.com`  
-    ![SSH Key 1](Screenshot%202025-11-19%20100207.png)
+    ![Key im Detail](instanzdetails-ami.png)
   - **Key 2 (aktuell fehlgeschlagen):**  
     `ssh -i "Denis2.pem" ubuntu@ec2-52-201-60-41.compute-1.amazonaws.com`  
-    ![SSH Key 2 Fehler](Screenshot%202025-11-18%20134854.png)
-  - **Instanzdetails mit Key-Pair:**  
-    ![Key im Detail](Screenshot%202025-11-18%20134249.png)
+    ![SSH Key 2 Fehler](instanzdetails-network.png)
+  - **Key 2 überprüfen:**  
+    `cat .ssh/authorized_keys`  
+    ![SSH Key 2 Fehler](ssh-key1.png)
 
 - **Analyse des zweiten Keys**  
   - In `/home/ubuntu/.ssh/authorized_keys` befindet sich nur der Eintrag für `Denis1` (Screenshot bestätigt).  
-  - AWS hinterlegt nur den Key, der beim Launch ausgewählt wurde. Zusätzliche Key-Pairs müssen **nachträglich** via:  
-    ```sh
-    cat Denis2.pub | ssh -i Denis1.pem ubuntu@<public-ip> \
-      'mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys'
-    ```  
-    hinzugefügt werden (oder über Systems Manager / CloudInit).  
-  - Erst nach dem Append taucht `Denis2` in `authorized_keys` auf und SSH mit Key 2 funktioniert.
 
 ### Leitfragen / Checkpoints
 
@@ -83,4 +76,7 @@
 ---
 
 **Hinweis:** Ich arbeite primär unter Windows, nutze aber WSL für CLI-Aufgaben. Wegen der unterschiedlichen Berechtigungsmodelle verwalte ich AWS-Schlüssel ausschließlich im WSL-Home des Users `awsProject`, damit die `.ssh`-Rechte den Linux-Anforderungen entsprechen.
+
+  - **Neuer Benutzer erstellt ^für Kommunikation zwischen WSL und Windows:**  
+    ![SSH Key 1](instanzliste.png)
 
