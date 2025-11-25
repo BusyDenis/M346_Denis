@@ -87,14 +87,14 @@ Erklärung: Das Statement listet alle in der internen Tabelle `mysql.user` hinte
 ### 7. Screenshots
 
 - Apache `index.html`:  
-  ![Apache Default Page](../indexhtml.png)
+  ![Apache Default Page](./indexhtml.png)
 - PHP Info (`info.php`):  
-  ![PHP Info Output](../infophp.png)
+  ![PHP Info Output](./infophp.png)
 - Datenbank-Test (`db.php`):  
-  ![DB Benutzerliste](../dbphp.png)
+  ![DB Benutzerliste](./dbphp.png)
 - Instanzdetails mit öffentlicher IP:  
-  ![EC2 Instanzdetails](../infohtml.png)
+  ![EC2 Instanzdetails](./infohtml.png)
 - Sicherheitsgruppe (Ports 22 & 80 offen):  
-  ![Security Group Rules](../firewallrules.png)
+  ![Security Group Rules](./firewallrules.png)
 - MySQL-Login als `admin` inkl. Abfrage:  
-  ![MySQL Konsole](../mysqlverbindungmitadmin.png)
+  ![MySQL Konsole](./mysqlverbindungmitadmin.png)
