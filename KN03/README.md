@@ -67,6 +67,25 @@ SELECT user, host FROM mysql.user;
 
 Erklärung: Das Statement listet alle in der internen Tabelle `mysql.user` hinterlegten Accounts mit zugehörigen Hosts auf. So lässt sich prüfen, ob der Benutzer `admin` korrekt angelegt wurde und von `%` zugreifen darf.
 
+Auszug aus der Konsole:
+
+```
+ubuntu@ip-172-31-24-39:~$ mysql -u admin -p
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Server version: 10.11.13-MariaDB-0ubuntu0.24.04.1 Ubuntu 24.04
+
+MariaDB [(none)]> select Host, User from mysql.user;
++-----------+-------------+
+| Host      | User        |
++-----------+-------------+
+| %         | admin       |
+| localhost | mariadb.sys |
+| localhost | mysql       |
+| localhost | root        |
++-----------+-------------+
+4 rows in set (0.002 sec)
+```
+
 ### 6. Leitfragen / Checkpoints
 
 - Bedeutung von `sudo`: Befehle werden mit Root-Rechten ausgeführt, notwendig für System-/Paketänderungen.
