@@ -52,17 +52,23 @@
 - **Abgaben B**:
   - **Angepasste Cloud-init Konfiguration**:
     - Datei `cloud-init.yaml` im Git-Repository mit eingetragenem ersten Public Key.
-  - **Screenshot der Instanz-Details**:
-    - Datei z.B. `keypairassignedto.png`
+  - **Screenshot der Instanz-Details** (Key-Pair):
+    - Datei: `keypairassignedto.png`
     - Bereich mit **"Key pair assigned at launch"** sichtbar.
-  - **Screenshot SSH mit erstem Key**:
-    - Datei z.B. `SSHConnection.png`
-    - Zeigt den `ssh`-Befehl mit dem **ersten privaten Key** und der erfolgreichen Verbindung.
-  - **Screenshot SSH mit zweitem Key**:
-    - Falls verlangt, alternativ/zusätzlich ein Screenshot mit dem `ssh`-Befehl und dem Resultat mit dem zweiten Key.
+
+    ![Key pair assigned at launch](./keypairassignedto.png)
+
+  - **Screenshot SSH mit erstem Key** (Cloud-init-Key):
+    - Datei: `SSHConnection.png`
+    - Zeigt den `ssh`-Befehl mit dem **ersten privaten Key** und die erfolgreiche Verbindung zur Instanz.
+
+    ![SSH Verbindung mit erstem Key](./SSHConnection.png)
+
   - **Screenshot Cloud-init-Log**:
-    - Datei z.B. `cloud-init-log_access.png`
-    - Sichtbar: aufgerufener Befehl (z.B. `sudo cat /var/log/cloud-init-output.log`) und der obere Teil des Logs.
+    - Datei: `cloud-init-log_access.png`
+    - Sichtbar: der verwendete Befehl (z.B. `sudo cat /var/log/cloud-init-output.log`) und der obere Teil des Logs.
+
+    ![Cloud-init Log Ausgabe](./cloud-init-log_access.png)
 
 ---
 
