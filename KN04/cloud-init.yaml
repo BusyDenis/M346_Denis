@@ -1,0 +1,33 @@
+# Kennzeichnung, dass es sich um eine Cloud-Init-Konfigurationsdatei handelt
+#cloud-config
+
+# Beginn der Benutzerkonfiguration (Liste von Benutzern, die angelegt/konfiguriert werden)
+users:
+  # Definition eines neuen Benutzers mit dem Namen "ubuntu"
+  - name: ubuntu
+    # Zugehörigkeit dieses Benutzers zu den Gruppen "users" und "admin"
+    groups: [users, admin]
+    # Standardshell, die für diesen Benutzer verwendet wird
+    shell: /bin/bash
+    # Sudo-Rechte: Benutzer darf alle Befehle ohne Passwortabfrage ausführen
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    # Abschnitt für die hinterlegten SSH-Public-Keys dieses Benutzers
+    ssh_authorized_keys:
+      # Öffentlicher SSH-Key, mit dem eine passwortlose Anmeldung erlaubt wird
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDV3Hz6sZXl6bCY7t0S1arTIh4CDdj1BG2oQqoUWHUSoijvFheGPGYpCOgt4P5vS4rB+eaif7mdMfOnL4AQkBmBISodknzP+TumQqjeoeiV4cQBknyrWRkATGZ4Z582CGkebMp2t/dN4W6tk2ml8yzS51xK4T3qvu9wAV+JqrGtp1Q+KaTfvpNQz/VOSn9UE8WyyYZuNnKxw1yhGawmbp22hxUQc6xUVEgcTP9caKWlPc/TDQ+9/mcuik+NEunRU61eYwV6riG/rfyZ+c0nsWIjOk9vFX/a/gS/9BSBahzg6AsfK+eXGoKuQ9xSEBRQ95TMFsPHC67EFtdCcPTavOFr denis
+
+# Deaktiviert die Passwort-Authentifizierung für SSH (nur SSH-Key-Login erlaubt)
+ssh_pwauth: false
+
+# Root-Benutzer wird NICHT deaktiviert (Root-Account bleibt grundsätzlich nutzbar)
+disable_root: false
+
+# Vor der Paketinstallation soll ein Paketlisten-Update (z.B. "apt-get update") durchgeführt werden
+package_update: true
+
+# Liste der Pakete, die automatisch installiert werden sollen
+packages:
+  # Installation des Tools "curl" für HTTP-Anfragen von der Kommandozeile
+  - curl
+  # Installation des Tools "wget" zum Herunterladen von Dateien über HTTP/HTTPS/FTP
+  - wget

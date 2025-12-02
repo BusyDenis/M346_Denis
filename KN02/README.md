@@ -62,6 +62,7 @@
 - **Analyse des zweiten Keys**  
   - In `/home/ubuntu/.ssh/authorized_keys` befindet sich nur der Eintrag für `Denis1` (Screenshot bestätigt).  
 
+
 ### Leitfragen / Checkpoints
 
 - **AWS-Umgebung:** Learner Lab starten/stoppen, Budget-Panel prüfen, Zeitfenster im Blick behalten.  
