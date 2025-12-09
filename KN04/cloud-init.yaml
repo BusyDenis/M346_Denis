@@ -1,4 +1,3 @@
-# Kennzeichnung, dass es sich um eine Cloud-Init-Konfigurationsdatei handelt
 #cloud-config
 
 # Beginn der Benutzerkonfiguration (Liste von Benutzern, die angelegt/konfiguriert werden)

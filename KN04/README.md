@@ -72,9 +72,61 @@
 
 ---
 
+### C) Cloud-Init Template (5 %)
+
+- **Ziel**: Ein wiederverwendbares Cloud-init-Template basierend auf Aufgabe B.
+- **Anforderungen**:
+  - **Zwei SSH Public Keys** hinterlegen: dein eigener + der deiner Lehrperson.
+  - Struktur wie in B, beginnend mit `#cloud-config`.
+  - Dieses Template künftig als Ausgangspunkt für neue Cloud-init Dateien nutzen.
+- **Abgabe C**:
+  - Template-Datei (z.B. `cloud-init-template.yaml`) mit beiden Public Keys im Repo.
+
+---
+
+### D) Installation automatisieren (70 %)
+
+Du erstellst zwei Cloud-init Dateien, je eine pro Instanz:
+
+1) **Datenbank-Instanz** (`cloud-init-db.yaml`)
+- Blöcke: `users`, `ssh_authorized_keys` (eigener + Lehrperson), `package_update`, `packages`, `runcmd`.
+- Pakete: mind. `mariadb-server` (ggf. `curl`, `wget`).
+- `runcmd` (Beispiel aus Datei):
+  - DB-User anlegen/öffnen: `GRANT ALL ON *.* TO 'admin'@'%' IDENTIFIED BY 'admin' WITH GRANT OPTION;`
+  - Bind-Adresse öffnen: `sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mysql/mariadb.conf.d/50-server.cnf`
+  - Service neu starten: `systemctl restart mariadb.service`
+  - Optional für Screenshot: `grep bind-address /etc/mysql/mariadb.conf.d/50-server.cnf`
+- Abgabe DB:
+  - `cloud-init-db.yaml` im Repo.
+  - Screenshot der DB-Konfiguration mit dem geänderten Key (`bind-address` o.ä.).
+
+2) **Webserver-Instanz** (`cloud-init-web.yaml`)
+- Blöcke: `users`, `ssh_authorized_keys` (eigener + Lehrperson), `package_update`, `packages`, `write_files`, `runcmd`.
+- Pakete: `apache2`, `php`, `libapache2-mod-php`, `php-mysql`, `adminer` (ggf. `curl`, `wget`).
+- `write_files`: `index.html`, `info.php`, `db.php` direkt schreiben (DB-IP im `db.php` auf die private DB-IP setzen).
+- `runcmd`:
+  - `a2enconf adminer`
+  - `systemctl restart apache2`
+- Abgabe Web:
+  - `cloud-init-web.yaml` im Repo.
+  - Screenshots von `index.html`, `info.php`, `db.php` (URL + Inhalt sichtbar).
+  - Adminer unter `http://<web-ip>/adminer/` öffnen, mit DB verbinden, Screenshot des erfolgreichen Connects.
+
+**Hinweise / häufige Fehler**
+- Erste Zeile nicht vergessen: `#cloud-config`.
+- Einrückungen strikt nach YAML (ggf. mit https://www.yamllint.com prüfen).
+- SSH-Key-Format: `ssh-rsa <key-ohne-umbrüche> kommentar`.
+- Logs bei Problemen: `/var/log/cloud-init-output.log`.
+- Connectivity-Test DB: auf DB-Server `mysql -u admin -p`; vom Webserver `telnet <db-ip> 3306`.
+
+---
+
 ### Übersicht der wichtigen Dateien in `KN04`
 
-- `cloud-init.yaml` – kommentierte Cloud-init-Konfiguration mit SSH-Key.
+- `cloud-init.yaml` – kommentierte Cloud-init-Konfiguration (A/B).
+- `cloud-init-template.yaml` – Template mit zwei Public Keys (du + Lehrperson) für C.
+- `cloud-init-db.yaml` – DB-Instanz (D).
+- `cloud-init-web.yaml` – Web-Instanz (D).
 - `README.md` – diese Aufgabenbeschreibung und Dokumentation.
 - `keypairassignedto.png` – Screenshot Instanzdetails mit Key-Pair-Anzeige.
 - `SSHConnection.png` – Screenshot SSH-Verbindung mit dem ersten Key.
