@@ -99,6 +99,8 @@ Du erstellst zwei Cloud-init Dateien, je eine pro Instanz:
 - Abgabe DB:
   - `cloud-init-db.yaml` im Repo.
   - Screenshot der DB-Konfiguration mit dem geänderten Key (`bind-address` o.ä.).
+  
+  ![DB-Konfig Bind-Address](./Screenshot_Conf_Cloudinit-web1.png)
 
 2) **Webserver-Instanz** (`cloud-init-web.yaml`)
 - Blöcke: `users`, `ssh_authorized_keys` (eigener + Lehrperson), `package_update`, `packages`, `write_files`, `runcmd`.
@@ -111,6 +113,12 @@ Du erstellst zwei Cloud-init Dateien, je eine pro Instanz:
   - `cloud-init-web.yaml` im Repo.
   - Screenshots von `index.html`, `info.php`, `db.php` (URL + Inhalt sichtbar).
   - Adminer unter `http://<web-ip>/adminer/` öffnen, mit DB verbinden, Screenshot des erfolgreichen Connects.
+
+  ![Web-Ergebnis 1](./Screenshot_ergebniss.png)
+  
+  ![Web-Ergebnis 2](./Screenshot_ergebniss2.png)
+
+  ![Adminer/Config](./Screenshot_Conf_Cloudinit-web2.png)
 
 **Hinweise / häufige Fehler**
 - Erste Zeile nicht vergessen: `#cloud-config`.
