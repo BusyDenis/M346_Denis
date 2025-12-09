@@ -15,6 +15,9 @@ users:
     ssh_authorized_keys:
       # Öffentlicher SSH-Key, mit dem eine passwortlose Anmeldung erlaubt wird
       - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDV3Hz6sZXl6bCY7t0S1arTIh4CDdj1BG2oQqoUWHUSoijvFheGPGYpCOgt4P5vS4rB+eaif7mdMfOnL4AQkBmBISodknzP+TumQqjeoeiV4cQBknyrWRkATGZ4Z582CGkebMp2t/dN4W6tk2ml8yzS51xK4T3qvu9wAV+JqrGtp1Q+KaTfvpNQz/VOSn9UE8WyyYZuNnKxw1yhGawmbp22hxUQc6xUVEgcTP9caKWlPc/TDQ+9/mcuik+NEunRU61eYwV6riG/rfyZ+c0nsWIjOk9vFX/a/gS/9BSBahzg6AsfK+eXGoKuQ9xSEBRQ95TMFsPHC67EFtdCcPTavOFr denis
+      # Öffentlicher SSH-Key, der Lehrperson
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC0WGP1EZykEtv5YGC9nMiPFW3U3DmZNzKFO5nEu6uozEHh4jLZzPNHSrfFTuQ2GnRDSt+XbOtTLdcj26+iPNiFoFha42aCIzYjt6V8Z+SQ9pzF4jPPzxwXfDdkEWylgoNnZ+4MG1lNFqa8aO7F62tX0Yj5khjC0Bs7Mb2cHLx1XZaxJV6qSaulDuBbLYe8QUZXkMc7wmob3PM0kflfolR3LE7LResIHWa4j4FL6r5cQmFlDU2BDPpKMFMGUfRSFiUtaWBNXFOWHQBC2+uKmuMPYP4vJC9sBgqMvPN/X2KyemqdMvdKXnCfrzadHuSSJYEzD64Cve5Zl9yVvY4AqyBD
+
 
 # Deaktiviert die Passwort-Authentifizierung für SSH (nur SSH-Key-Login erlaubt)
 ssh_pwauth: false
