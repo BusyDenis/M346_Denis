@@ -48,16 +48,13 @@ Die Firma betreibt eine eigene CRM-Software On-Premise mit folgender Spezifikati
 #### AWS Screenshots
 
 ##### Web Server (EC2 t3.small)
-![AWS Web Server](Bilder/aws-web-server.png)
+![AWS Web Server](Bilder/aws-webconfig.png)
 
 ##### DB Server (EC2 t3.medium)
-![AWS DB Server](Bilder/aws-db-server.png)
-
-##### Backup Storage (S3)
-![AWS S3 Backup](Bilder/aws-s3-backup.png)
+![AWS DB Server](Bilder/aws-dbconfig.png)
 
 ##### AWS Gesamtübersicht
-![AWS Kostenübersicht](Bilder/aws-uebersicht.png)
+![AWS Kostenübersicht](Bilder/aws-total.png)
 
 #### AWS Gesamtkosten
 | Komponente | Monatliche Kosten |
@@ -96,16 +93,16 @@ Die Firma betreibt eine eigene CRM-Software On-Premise mit folgender Spezifikati
 #### Azure Screenshots
 
 ##### Web Server (B1ms)
-![Azure Web Server](Bilder/azure-web-server.png)
+![Azure Web Server](Bilder/azure-webconfig.png)
 
 ##### DB Server (B2s)
-![Azure DB Server](Bilder/azure-db-server.png)
+![Azure DB Server](Bilder/azure-dbconfig.png)
 
 ##### Backup Storage (Blob Storage)
-![Azure Blob Storage](Bilder/azure-blob-storage.png)
+![Azure Blob Storage](Bilder/azure-backupstorage.png)
 
 ##### Azure Gesamtübersicht
-![Azure Kostenübersicht](Bilder/azure-uebersicht.png)
+![Azure Kostenübersicht](Bilder/azure-total.png)
 
 #### Azure Gesamtkosten
 | Komponente | Monatliche Kosten |
@@ -125,7 +122,7 @@ Die Firma betreibt eine eigene CRM-Software On-Premise mit folgender Spezifikati
 
 3. **Burstable Instances**: Beide Provider empfehlen Burstable-Instanzen (t3-Serie bei AWS, B-Serie bei Azure) für variable Workloads wie CRM-Anwendungen, die nicht konstant hohe CPU-Auslastung haben.
 
-4. **Preisunterschied AWS vs Azure**: AWS ist kostengünstiger ($45.97 vs $64.05) aufgrund flexiblerer Storage-Optionen und günstigerer Instance-Typen für diese Workload-Grösse.
+4. **Preisunterschied AWS vs Azure**: AWS ist kostengünstiger ($34.55 vs $64.05) aufgrund flexiblerer Storage-Optionen und günstigerer Instance-Typen für diese Workload-Grösse.
 
 ---
 
@@ -134,7 +131,7 @@ Die Firma betreibt eine eigene CRM-Software On-Premise mit folgender Spezifikati
 ### Dyno (Web Server)
 
 #### Screenshot Heroku Dynos
-![Heroku Dyno Pricing](Bilder/heroku-dynos.png)
+![Heroku Dyno Pricing](Bilder/herokudynos.png)
 
 | Dyno Type | Preis/Monat | RAM | Begründung |
 |-----------|-------------|-----|------------|
@@ -145,7 +142,7 @@ Die Firma betreibt eine eigene CRM-Software On-Premise mit folgender Spezifikati
 ### Datenbank (Heroku Postgres)
 
 #### Screenshot Heroku Postgres
-![Heroku Postgres Pricing](Bilder/heroku-postgres.png)
+![Heroku Postgres Pricing](Bilder/herokupostgres.png)
 
 | Plan | Preis/Monat | RAM | Disk | Begründung |
 |------|-------------|-----|------|------------|
@@ -182,7 +179,7 @@ Die Firma betreibt eine eigene CRM-Software On-Premise mit folgender Spezifikati
 
 4. **Backup inkludiert**: Im Gegensatz zu IAAS (AWS/Azure) sind bei Heroku Postgres Standard-Plänen automatische tägliche Backups bereits im Preis enthalten. Kein separater Backup-Storage erforderlich.
 
-5. **Kosten vs. Aufwand**: PAAS ist teurer als IAAS ($100 vs. $46-64), reduziert aber den administrativen Aufwand erheblich und eliminiert die Notwendigkeit für Server-Management.
+5. **Kosten vs. Aufwand**: PAAS ist teurer als IAAS ($100 vs. $35-64), reduziert aber den administrativen Aufwand erheblich und eliminiert die Notwendigkeit für Server-Management.
 
 ---
 
@@ -191,7 +188,7 @@ Die Firma betreibt eine eigene CRM-Software On-Premise mit folgender Spezifikati
 ### Zoho CRM
 
 #### Screenshot Zoho Pricing
-![Zoho CRM Pricing](Bilder/zoho-pricing.png)
+![Zoho CRM Pricing](Bilder/zohocrm.png)
 
 | Plan | Preis/User/Monat | Für 30 User | Features |
 |------|------------------|-------------|----------|
@@ -209,7 +206,7 @@ Die Firma betreibt eine eigene CRM-Software On-Premise mit folgender Spezifikati
 ### Salesforce Sales Cloud
 
 #### Screenshot Salesforce Pricing
-![Salesforce Pricing](Bilder/salesforce-pricing.png)
+![Salesforce Pricing](Bilder/salesforce.png)
 
 | Plan | Preis/User/Monat | Für 30 User | Features |
 |------|------------------|-------------|----------|
@@ -357,17 +354,16 @@ Die Firma betreibt eine eigene CRM-Software On-Premise mit folgender Spezifikati
 KN10/
 ├── README.md
 └── Bilder/
-    ├── aws-web-server.png
-    ├── aws-db-server.png
-    ├── aws-s3-backup.png
-    ├── aws-uebersicht.png
-    ├── azure-web-server.png
-    ├── azure-db-server.png
-    ├── azure-blob-storage.png
-    ├── azure-uebersicht.png
-    ├── heroku-dynos.png
-    ├── heroku-postgres.png
-    ├── zoho-pricing.png
-    └── salesforce-pricing.png
+    ├── aws-webconfig.png
+    ├── aws-dbconfig.png
+    ├── aws-total.png
+    ├── azure-webconfig.png
+    ├── azure-dbconfig.png
+    ├── azure-backupstorage.png
+    ├── azure-total.png
+    ├── herokudynos.png
+    ├── herokupostgres.png
+    ├── zohocrm.png
+    └── salesforce.png
 ```
 
