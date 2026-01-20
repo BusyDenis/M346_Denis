@@ -110,7 +110,8 @@ MariaDB [(none)]> select Host, User from mysql.user;
 - PHP Info (`info.php`):  
   ![PHP Info Output](./infophp.png)
 - Datenbank-Test (`db.php`):  
-  ![DB Benutzerliste](./dbphp.png)
+  - Datenbank-Test mit Resultat:  
+    ![Datenbank Test Resultat](./dbphpResultat.png)
 - Instanzdetails mit öffentlicher IP:  
   ![EC2 Instanzdetails](./infohtml.png)
 - Sicherheitsgruppe (Ports 22 & 80 offen):  
