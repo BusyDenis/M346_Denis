@@ -126,6 +126,8 @@ Du erstellst zwei Cloud-init Dateien, je eine pro Instanz:
 - SSH-Key-Format: `ssh-rsa <key-ohne-umbrüche> kommentar`.
 - Logs bei Problemen: `/var/log/cloud-init-output.log`.
 - Connectivity-Test DB: auf DB-Server `mysql -u admin -p`; vom Webserver `telnet <db-ip> 3306`.
+- In YAML/Cloud-init bedeutet das Pipe-Zeichen `|`, dass der nachfolgende eingerückte Block als mehrzeiliger String mit allen Zeilenumbrüchen übernommen wird (z.B. für Skripte in `runcmd` oder Inhalte in `write_files`).
+- Alle Zeilen, die auf gleicher Einrückungsebene unterhalb des `|` stehen, gehören zu diesem String, bis die Einrückungsebene endet.
 
 ---
 
